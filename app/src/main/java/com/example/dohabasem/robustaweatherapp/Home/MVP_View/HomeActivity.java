@@ -51,6 +51,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    //    mPresenter.getAllWeatherItems();
+    }
+
+    @Override
     public void showAllWeatherItems(ArrayList<WeatherItem>weatherItems) {
         mWeatherAdapter.setWeatherList(weatherItems);
     }
@@ -61,12 +67,26 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         Bundle bundle=new Bundle();
         bundle.putSerializable(Constants.WEATHER_ITEM_SERIALIZABLE,weatherItem);
         editIntent.putExtras(bundle);
-        startActivity(editIntent);
+        startActivityForResult(editIntent,Constants.RESULT_CANCELED);
     }
 
     @Override
     public void navigateToNewWeatherItem() {
         Intent editIntent=new Intent(this, AddEditWeatherActivity.class);
-        startActivity(editIntent);
+        startActivityForResult(editIntent,Constants.RESULT_CANCELED);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==Constants.RESULT_CANCELED)
+        {
+            weatherRecyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+            mPresenter=new HomePresenterImpl(this,getApplicationContext());
+            mWeatherAdapter=new WeatherHistoryAdapter(new ArrayList<WeatherItem>(),getApplicationContext(),mPresenter);
+            weatherRecyclerView.setAdapter(mWeatherAdapter);
+            mPresenter.getAllWeatherItems();
+        }
+
     }
 }

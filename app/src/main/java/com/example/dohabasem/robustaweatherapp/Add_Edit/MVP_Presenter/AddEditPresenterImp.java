@@ -66,6 +66,7 @@ public class AddEditPresenterImp implements AddEditPresenter {
     public void onSaveItemClicked() {
         mDatabaseHelper.addWeatherItem(weatherItem);
         ArrayList<WeatherItem> weatherItems=(ArrayList<WeatherItem>) mDatabaseHelper.getAllSavedItems();
+        mView.showItemSavedToast();
         Log.d("weather","allItems");
     }
 

@@ -14,7 +14,7 @@ public class Constants {
     //Request Code
     public static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final int REQUEST_IMAGE_SAVE=2;
-
+    public static final int RESULT_CANCELED=0;
     //Requested Items Tags from API
     public static final String REQUEST_TEMP="temp";
     public static final String REQUEST_HUMID="humidity";

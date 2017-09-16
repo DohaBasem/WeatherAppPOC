@@ -16,4 +16,6 @@ public interface AddEditView {
     void displayTemp(String temp);
 
     void displayHumidity(String humidity);
+
+    void showItemSavedToast();
 }

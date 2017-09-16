@@ -154,7 +154,6 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
 
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -215,6 +214,11 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
         humidityTextView.setText("Humidity " + humidity);
         Toast.makeText(getContext(), humidity, Toast.LENGTH_LONG).show();
 
+    }
+
+    @Override
+    public void showItemSavedToast() {
+        Toast.makeText(getContext(),"Item Saved ",Toast.LENGTH_LONG).show();
     }
 
     public void createPresenter(AddEditPresenter presenter) {

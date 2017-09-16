@@ -42,6 +42,12 @@ public class AddEditWeatherActivity extends AppCompatActivity implements AddEdit
     }
 
     @Override
+    public void onBackPressed() {
+        setResult(Constants.RESULT_CANCELED);
+        finish();
+    }
+
+    @Override
     public void onFragmentInteraction(Uri uri) {
 
     }
