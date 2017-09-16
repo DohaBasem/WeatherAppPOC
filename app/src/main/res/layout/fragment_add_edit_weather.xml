@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dohabasem.robustaweatherapp.Add_Edit.MVP_View.AddEditWeatherFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/weather_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/place"
+                android:layout_alignLeft="@+id/weather_image"
+                android:text="Cairo"
+                android:textSize="@dimen/weather_info_place_text_size"
+                android:layout_marginLeft="@dimen/text_margins"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/temp"
+                android:layout_below="@+id/place"
+                android:layout_marginLeft="@dimen/text_margins"
+                android:layout_marginTop="@dimen/text_margins"
+                android:textSize="@dimen/weather_data_text_size"
+                android:textColor="#FFFFFF"
+                android:text="Temperature "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/temp"
+                android:id="@+id/humidity"
+                android:layout_marginLeft="@dimen/text_margins"
+                android:layout_marginTop="@dimen/text_margins"
+                android:textSize="@dimen/weather_data_text_size"
+                android:textColor="#FFFFFF"
+                android:text="Humidity "
+                />
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_image_fab_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:clickable="true" />
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        app:menu="@menu/bottom_toolbar"/>
+
+</LinearLayout>
