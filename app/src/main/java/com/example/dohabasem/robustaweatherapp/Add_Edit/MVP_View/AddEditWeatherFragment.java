@@ -101,13 +101,17 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
         ButterKnife.bind(this, inflatedView);
         if (weatherItem.getImagePath() != null)
             Picasso.with(getContext()).load(weatherItem.getImagePath()).into(weatherImageView);
+        if (weatherItem.getTemperature() != null)
+            tempTextView.setText("Temperature  " + weatherItem.getTemperature());
+        if (weatherItem.getHumidity() != null)
+            humidityTextView.setText("Humidity  " + weatherItem.getHumidity());
         disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
 
         MenuItem shareToFB = menu.getItem(0);
         MenuItem saveItem = menu.getItem(1);
         MenuItem addTemp = menu.getItem(2);
-        MenuItem addHumidity=menu.getItem(3);
+        MenuItem addHumidity = menu.getItem(3);
 
         shareToFB.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
@@ -140,7 +144,7 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
         addHumidity.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                mPresenter.onSaveItemClicked();
+                mPresenter.onAddHumidityClicked();
                 return true;
             }
         });
@@ -218,7 +222,7 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
 
     @Override
     public void showItemSavedToast() {
-        Toast.makeText(getContext(),"Item Saved ",Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "Item Saved ", Toast.LENGTH_LONG).show();
     }
 
     public void createPresenter(AddEditPresenter presenter) {
@@ -245,6 +249,7 @@ public class AddEditWeatherFragment extends Fragment implements AddEditView {
             //Timber.e(e, "Unable to change value of shift mode");
         }
     }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
