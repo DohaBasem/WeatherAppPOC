@@ -61,7 +61,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/fab_margin"
-            android:clickable="true" />
+            android:clickable="true"
+            android:src="@drawable/ic_camera"/>
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
